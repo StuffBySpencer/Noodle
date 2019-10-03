@@ -27,6 +27,24 @@ e export
     <title>Noodle</title>
   </head>
   <body>
+    <div id="top-menu" class="icon-bar">
+      <img src="icons/Trace Icon.png" onclick="noodle.set('trace')">
+      <img src="icons/Tone Icon.png" onclick="noodle.set('tone')">
+      <img src="icons/Block Icon.png" onclick="noodle.set('block')">
+      <img src="icons/Hor Icon.png" onclick="noodle.set('hor')">
+      <img src="icons/Ver Icon.png" onclick="noodle.set('ver')">
+      <img src="icons/Dot Icon.png" onclick="noodle.set('dot')">
+      <img src="icons/Triangle Icon.png" onclick="noodle.set('deco')">
+    </div>
+    <div id="bottom-menu" class="icon-bar">
+      <img src="icons/Drag Icon.png" onclick="noodle.set('drag')">
+      <img src="icons/Center Icon.png" onclick="noodle.center()">
+      <img src="icons/White Icon.png" id="color-button">
+      <img src="icons/Invert Icon.png" onclick="noodle.invert()">
+      <img src="icons/Flip Icon.png" onclick="noodle.flip()">
+      <!-- <img src="icons/Clear Icon.png" onclick="noodle."> -->
+      <img src="icons/Noodle & Export Icon.png" id="export-button">
+    </div>
     <script>
       console.clear()
       const size = window.location.hash.substr(1)
@@ -42,6 +60,31 @@ e export
       * { margin:0;padding:0;border:0;outline:0; position:fixed }
       body { overflow: hidden; background:#eee }
       canvas { border-radius: 3px; transition: top 250ms, left 250ms; image-rendering: pixelated; image-rendering: optimizeSpeed; }
+      .icon-bar {
+        background-color: #eee;
+        padding: 10px;
+        width: 75vw;
+        max-width: 500px;
+        height: 40px;
+        z-index: 10;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+        align-items: center;
+        justify-items: center;
+        border-radius: 2px;
+      }
+      .icon-bar img {
+        position: relative;
+      }
+      #top-menu {
+        top: 0;
+      }
+      #bottom-menu {
+        bottom: 0;
+      }
     </style>
   </body>
 </html>

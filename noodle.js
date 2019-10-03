@@ -27,6 +27,20 @@ function Noodle () {
   }
 
   this.start = function (w = window.innerWidth - 15, h = window.innerHeight - 15) {
+    document.getElementById('export-button').onclick = () => {
+      grab(this.el.toDataURL('image/png'))
+    }
+    document.getElementById('color-button').onclick = () => {
+      if (cursor.color == 'black') {
+        this.color('white')
+        document.getElementById('color-button').src = "icons/Black Icon.png"
+      }
+      else if (cursor.color == 'white') {
+        this.color('black')
+        document.getElementById('color-button').src = "icons/White Icon.png"
+      }
+      this.context.fillStyle = cursor.color
+    }
     this.resize(w, h)
     this.fill()
     this.set('trace')
